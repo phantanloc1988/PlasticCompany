@@ -63,7 +63,7 @@ namespace PlasticCompany.Models
 
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.ProductId).ValueGeneratedNever();
 
                 entity.Property(e => e.Name).HasMaxLength(250);
 

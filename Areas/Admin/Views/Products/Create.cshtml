@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Header{
+
+    <link href="~/css/Others/summernote-bs4.min.css" rel="stylesheet" />
+}
+@section Footer{
+    <script src="~/js/Others/summernote-bs4.min.js"></script>
+    <script src="~/js/Admin/Products/Create.js"></script>
+}
+
+<h2 class="h4">Thêm sản phẩm</h2>
+<div class="row">
+    <div class="col-4">
+        <div class="mb-4">
+            <label for="email">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-4">
+            <label for="email">Mã sản phẩm</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-4">
+            <label for="email">Giá</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <small class="form-text text-muted">"Giá liên hệ": vui lòng nhập giá bằng 0</small>
+        </div>
+    </div>    
+    <div class="my-4 col-12">
+        <label for="textarea">Mô tả sản phẩm</label>
+        <textarea id="summernote" name="editordata"></textarea>
+    </div>
+
+</div>

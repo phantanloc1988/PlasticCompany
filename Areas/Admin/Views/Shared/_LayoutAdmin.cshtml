@@ -43,7 +43,9 @@
     <!-- Volt CSS -->
     <link type="text/css" href="~/css/Admin/Template/css/volt.css" rel="stylesheet">
 
-    <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    <!-- Plastic Company Admin CSS -->
+    <link href="~/css/plastic-company-admin.css" rel="stylesheet" />
+    @RenderSection("Header", required: false)
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -66,7 +68,7 @@
                     @await Html.PartialAsync("/Areas/Admin/Views/Shared/Home/_TopNav.cshtml")
                     @RenderBody()
 
-                    <footer class="footer section py-5">
+                    @*<footer class="footer section py-5">
                         <div class="row">
                             <div class="col-12 col-lg-6 mb-4 mb-lg-0">
                                 <p class="mb-0 text-center text-xl-left">Copyright © 2019-<span class="current-year"></span> <a class="text-primary font-weight-normal" href="https://themesberg.com" target="_blank">Themesberg</a></p>
@@ -89,16 +91,18 @@
                                 </ul>
                             </div>
                         </div>
-                    </footer>
+                    </footer>*@
                 </main>
             </div>
         </div>
     </div>
 
     <!-- Core -->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/css/Admin/Template/vendor/popper.js/dist/umd/popper.min.js"></script>
     <script src="~/css/Admin/Template/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
     <!-- Vendor JS -->
     <script src="~/css/Admin/Template/vendor/onscreen/dist/on-screen.umd.min.js"></script>
 
@@ -133,6 +137,9 @@
     <!-- Volt JS -->
     <script src="~/css/Admin/Template/assets/js/volt.js"></script>
 
+    <!-- My JS -->
+    <script src="~/js/Admin/MyJavaScript.js"></script>
 
+    @RenderSection("Footer", required: false)
 </body>
 </html>
