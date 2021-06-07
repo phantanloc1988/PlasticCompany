@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PlasticCompany.Areas.Admin.Services.ProductCategoriesServies;
+using PlasticCompany.Areas.Admin.Services.ProductsServices;
+using PlasticCompany.Common.MyServices;
 using PlasticCompany.Models;
 
 namespace PlasticCompany
@@ -27,12 +29,14 @@ namespace PlasticCompany
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddNewtonsoftJson();
             services.AddDbContext<PlasticCompanyContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MyConnectionString")));
-            services.AddMvc();
+            services.AddMvc().AddNewtonsoftJson();
             services.AddHttpContextAccessor();
+            services.AddTransient<IMyServices,MyServices>();
             services.AddTransient<IProductCategories,ProductCategoriesServices>();
+            services.AddTransient<IProduct,ProductServices>();
             
         }
 
@@ -46,8 +50,8 @@ namespace PlasticCompany
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                //// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                //app.UseHsts();
             }
 
             app.UseHttpsRedirection();

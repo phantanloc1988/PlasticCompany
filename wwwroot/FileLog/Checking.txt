@@ -1,0 +1,50 @@
+6/7/2021 1:53:58 PM - Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+6/7/2021 1:53:58 PM -    at System.Collections.Generic.List`1.set_Item(Int32 index, T value)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 56
+6/7/2021 1:53:58 PM - System.Private.CoreLib
+6/7/2021 1:59:08 PM - Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+6/7/2021 1:59:08 PM -    at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 54
+6/7/2021 1:59:08 PM - System.Private.CoreLib
+6/7/2021 2:00:38 PM - Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+6/7/2021 2:00:38 PM -    at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 54
+6/7/2021 2:00:38 PM - System.Private.CoreLib
+6/7/2021 2:02:07 PM - Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+6/7/2021 2:02:07 PM -    at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 54
+6/7/2021 2:02:07 PM - System.Private.CoreLib
+6/7/2021 2:03:09 PM - Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+6/7/2021 2:03:09 PM -    at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 54
+6/7/2021 2:03:09 PM - System.Private.CoreLib
+6/7/2021 2:03:16 PM - Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+6/7/2021 2:03:16 PM -    at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 54
+6/7/2021 2:03:16 PM - System.Private.CoreLib
+6/7/2021 2:04:12 PM - Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+6/7/2021 2:04:12 PM -    at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 54
+6/7/2021 2:04:12 PM - System.Private.CoreLib
+6/7/2021 2:05:37 PM - Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+6/7/2021 2:05:37 PM -    at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 54
+6/7/2021 2:05:37 PM - System.Private.CoreLib
+6/7/2021 2:11:09 PM - Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'PlasticCompanyContext'.
+6/7/2021 2:11:09 PM -    at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 76
+6/7/2021 2:11:09 PM - Microsoft.EntityFrameworkCore
+6/7/2021 2:22:53 PM - Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'PlasticCompanyContext'.
+6/7/2021 2:22:53 PM -    at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files)
+6/7/2021 2:22:53 PM - Microsoft.EntityFrameworkCore
+6/7/2021 2:24:32 PM - Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+6/7/2021 2:24:32 PM -    at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at PlasticCompany.Areas.Admin.Services.ProductsServices.ProductServices.CreateProduct(Product data, List`1 files) in D:\Lap Trinh\NewProjects\PlasticCompany\Areas\Admin\Services\ProductsServices\ProductServices.cs:line 85
+6/7/2021 2:24:32 PM - System.Private.CoreLib
