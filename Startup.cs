@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PlasticCompany.Areas.Admin.Services.BannerServices;
+using PlasticCompany.Areas.Admin.Services.InformationServices;
 using PlasticCompany.Areas.Admin.Services.ProductCategoriesServies;
 using PlasticCompany.Areas.Admin.Services.ProductsServices;
 using PlasticCompany.Common.MyServices;
@@ -37,6 +39,8 @@ namespace PlasticCompany
             services.AddTransient<IMyServices,MyServices>();
             services.AddTransient<IProductCategories,ProductCategoriesServices>();
             services.AddTransient<IProduct,ProductServices>();
+            services.AddTransient<IInformation, InformationServices>();
+            services.AddTransient<IBanner, BannerServices>();
             
         }
 

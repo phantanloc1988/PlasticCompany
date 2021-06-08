@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Samsonite.Common
+namespace PlasticCompany.Common
 {
     public static class Tools
     {
@@ -56,6 +55,4 @@ namespace Samsonite.Common
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
     }
-
-
 }

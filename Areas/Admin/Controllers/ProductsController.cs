@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using PlasticCompany.Areas.Admin.Services.ProductCategoriesServies;
 using PlasticCompany.Areas.Admin.Services.ProductsServices;
 using PlasticCompany.Areas.Admin.ViewModels.Products;
 using PlasticCompany.Common.MyServices;
 using PlasticCompany.Models;
+using X.PagedList;
 
 namespace PlasticCompany.Areas.Admin.Controllers
 {
@@ -17,39 +19,47 @@ namespace PlasticCompany.Areas.Admin.Controllers
     {
         private readonly IMyServices _myServcies;
         private readonly IProduct _productServices;
+        private readonly IProductCategories _productCategoriesServices;
 
-
-        public ProductsController(IMyServices ms, IProduct p)
+        public ProductsController(IMyServices ms, IProduct p, IProductCategories pc)
         {
             _myServcies = ms;
             _productServices = p;
+            _productCategoriesServices = pc;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
             var productList = _productServices.GetAll();
-            return View(productList);
+            var pageNumber = page ?? 1; 
+            var onePageOfProducts = productList.ToPagedList(pageNumber, 5);
+            ViewBag.OnePageOfProducts = onePageOfProducts;
+
+            return View(onePageOfProducts);
         }
 
 
         public IActionResult Create()
         {
+            ViewBag.Categories = _productCategoriesServices.GetAllProductCategories();
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(string data)
+        public async Task<JsonResult> Create(string data)
         {
             if (Request.Form.Count > 0)
             {
-                Product productObj = JsonConvert.DeserializeObject<Product>(Request.Form["Product"]);
+                Product product = JsonConvert.DeserializeObject<Product>(Request.Form["Product"]);
+                var files = Request.Form.Files;
 
-                var result = await _productServices.CreateProduct(productObj, (List<IFormFile>)Request.Form.Files);
+                var result = await _productServices.CreateProduct(product, (List<IFormFile>)files);
+
                 if (result == "Ok")
                 {
-                    return RedirectToAction("Index");
+                    return Json(new { status = result , url = Url.Action("Index","Products")});
                 }
             }
-            return View();
+            return Json(new { status = "Fail", url = Url.Action("Create", "Products") });
         }
     }
 }

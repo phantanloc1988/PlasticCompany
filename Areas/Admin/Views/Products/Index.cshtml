@@ -1,4 +1,6 @@
-﻿@model List<PlasticCompany.Models.Product>
+﻿@model IPagedList<PlasticCompany.Models.Product>
+@using X.PagedList.Mvc.Core; 
+@using X.PagedList;
 @{
     ViewData["Title"] = "Products Management";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -12,7 +14,7 @@
             <span class="fas fa-plus mr-2"></span>Thêm sản phẩm
         </a>
     </div>
-   
+
     <div class="table-settings mb-4 mt-2">
         <div class="row align-items-center justify-content-between">
             <div class="col col-md-6 col-lg-3 col-xl-4">
@@ -48,12 +50,12 @@
                     <th>Mã sản phẩm</th>
                     <th>Giá</th>
                     <th>Trạng thái</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
                 <!-- Item -->
-                @{  var countNumber = 0;
+                @{ var countNumber = 0;
 
                     foreach (var item in Model)
                     {
@@ -85,34 +87,8 @@
 
             </tbody>
         </table>
-        <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination mb-0">
-                    <li class="page-item">
-                        <a class="page-link" href="#">Previous</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">4</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">5</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="font-weight-bold small">Showing <b>5</b> out of <b>25</b> entries</div>
-        </div>
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, foo = "bar" }))        
     </div>
 
 </div>

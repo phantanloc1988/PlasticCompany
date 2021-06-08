@@ -2,6 +2,7 @@
 var createProduct = {
     init: function () {
         createProduct.validate();
+        this.selectCategory();
     },
 
     submitForm: function () {
@@ -50,7 +51,10 @@ var createProduct = {
             processData: false,
             data: data,
             success: function (res) {
-                console.log(res)
+                if (res.status === "Ok") {
+                    window.location.href = res.url;
+                }
+                window.location.href.res.url;
             }
         })
     },
@@ -78,11 +82,62 @@ var createProduct = {
             u8arr[n] = bstr.charCodeAt(n);
         }
         return new File([u8arr], filename, { type: mime });
+    },
+
+    selectCategory: function () {
+        $('body').on('change', '#create-product-form select', function () {
+
+            var levelOfSelectList = $(this).attr('name');
+
+            //level 1 selected successFully
+            if (levelOfSelectList === 'level1' && $(this).val() !== "0") {
+                var id = $(this).val();
+
+                $.ajax({
+                    type:"POST",
+                    url: '/Admin/ProductCategories/FindChilrenOfCategory',
+                    data: { id: id },
+                    success: function (res) {
+                        var result = [];
+                        for (var i = 0; i < res.length; i++) {
+                            result += `<option value=${res[i].productCategoryId}>${res[i].name}</option>`
+                        }
+                        // level-1 has children
+                        
+                        var optionDefault = '<option value=0 selected="selected">Vui lòng chọn</option>';
+
+                        $('#create-product-form select[name="level2"]').html('');
+                        $('#create-product-form select[name="level2"]').append(optionDefault);
+                        $('#create-product-form select[name="level2"]').append(result);
+                        $('#create-product-form select[name="level2"]').parent().removeClass('d-none');
+
+                        var valueOfLevel2 = $('#create-product-form select[name="level2"]').val();
+                        if (valueOfLevel2 === "0") {
+                            $('#create-product-form .Info').addClass('d-none');
+                        }
+
+                        // level-1 has not children
+                        if (res.length === 0) {
+                            $('#create-product-form select[name="level2"]').parent().addClass('d-none');
+                        }
+                    }
+                })
+
+                
+            }//level 2 selected successFully
+            else if (levelOfSelectList === 'level2' && $(this).val() !== "0") {
+                $('#create-product-form .Info').removeClass('d-none');
+            } //level 2 selected unsuccessFully
+            else if (levelOfSelectList === 'level2' && $(this).val() === "0") {
+                $('#create-product-form .Info').addClass('d-none');
+            } else {
+                $('#create-product-form .Info').addClass('d-none');
+                $('#create-product-form select[name="level2"]').parent().addClass('d-none');
+                
+            } 
+        })
     }
-
 }
-
-
 
 var textEditor = {
     init: function () {

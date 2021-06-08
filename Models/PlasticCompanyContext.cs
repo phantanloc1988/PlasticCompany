@@ -20,8 +20,9 @@ namespace PlasticCompany.Models
         }
 
         public virtual DbSet<About> About { get; set; }
-        public virtual DbSet<Banner> Banner { get; set; }
         public virtual DbSet<Contact> Contact { get; set; }
+        public virtual DbSet<Image> Image { get; set; }
+        public virtual DbSet<Images> Images { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductCategory> ProductCategory { get; set; }
 
@@ -36,12 +37,12 @@ namespace PlasticCompany.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<About>(entity =>
+            modelBuilder.Entity<Contact>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.ContactId).ValueGeneratedNever();
             });
 
-            modelBuilder.Entity<Banner>(entity =>
+            modelBuilder.Entity<Image>(entity =>
             {
                 entity.HasNoKey();
 
@@ -56,9 +57,13 @@ namespace PlasticCompany.Models
                 entity.Property(e => e.Type).HasMaxLength(30);
             });
 
-            modelBuilder.Entity<Contact>(entity =>
+            modelBuilder.Entity<Images>(entity =>
             {
                 entity.HasNoKey();
+
+                entity.Property(e => e.ImageId).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Type).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Product>(entity =>

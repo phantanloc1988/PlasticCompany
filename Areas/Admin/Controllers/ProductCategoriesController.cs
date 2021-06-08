@@ -69,5 +69,12 @@ namespace PlasticCompany.Areas.Admin.Controllers
 
             return PartialView(listView, cateList);
         }
+
+        public JsonResult FindChilrenOfCategory(int id)
+        {
+            var cateList = _productCategories.FindChilrenOfCategory(id);
+
+            return Json(cateList);
+        }
     }
 }

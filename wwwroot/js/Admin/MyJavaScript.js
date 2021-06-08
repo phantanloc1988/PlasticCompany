@@ -1,27 +1,9 @@
-﻿//var productCategories = {
-//    init: function () {
-//        this.validateForm();
-//    },
+﻿function convertUriToFile(URI, filename) {
+    var arr = URI.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, { type: mime });
+};
 
-//    submitCreateForm: function () {
-//        console.log('submitCreateForm')
-//        $('#product-categories .submit-btn').click(function () {
-//            this.validateForm();
-//        })
-       
-//    },
-
-//    validateForm: function () {
-//        $('#create-product-categories-form').validate({
-//            rules: {
-//                txtName: { required: true }
-//            },
-//            message: {
-//                required: "Vui lòng điền tên"
-//            },
-//            errorLabelContainer: "#my-errors",
-//        });
-//    }
-//}
-
-//productCategories.init();
