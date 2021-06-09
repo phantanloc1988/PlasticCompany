@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.15" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.15">
@@ -18,17 +19,21 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Common\" />
     <Folder Include="wwwroot\css\Admin\Template\vendor\fortawesome\fontawesome-free\less\" />
     <Folder Include="wwwroot\css\Admin\Template\vendor\fortawesome\fontawesome-free\scss\" />
     <Folder Include="wwwroot\css\Admin\Template\vendor\chartist\dist\scss\settings\" />
     <Folder Include="wwwroot\css\Admin\Template\vendor\waypoints\src\" />
     <Folder Include="wwwroot\css\Admin\Template\vendor\waypoints\test\" />
+    <Folder Include="wwwroot\Images\AboutImages\" />
+    <Folder Include="wwwroot\Images\Other\Banners\" />
+    <Folder Include="wwwroot\Images\ProducImages\" />
+    <Folder Include="wwwroot\FileLog\" />
   </ItemGroup>
 
 </Project>

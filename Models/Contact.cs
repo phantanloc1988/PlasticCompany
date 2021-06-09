@@ -9,8 +9,7 @@ namespace PlasticCompany.Models
 {
     public partial class Contact
     {
-        public string Address { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
+        public int ContactId { get; set; }
+        public string Content { get; set; }
     }
 }
