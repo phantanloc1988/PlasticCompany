@@ -21,5 +21,12 @@ namespace PlasticCompany.Common.MyServices
                 }
             }        
         }
+
+        public void DeleteFile(string folderPath, string nameFile)
+        {
+            string[] image = Directory.GetFiles(folderPath, nameFile);
+
+            File.Delete(image[0]);
+        }
     }
 }

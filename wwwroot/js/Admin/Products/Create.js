@@ -14,6 +14,9 @@ var createProduct = {
         var description = locationDescription.html();
         var descriptionImages = locationDescription.find('p img');
         var imageFiles = $('#formFile').get(0).files;
+        var categoryLevel1 = $('select[name="level1"]').val();
+        var categoryLevel2 = $('select[name="level2"]').val();
+        var category = categoryLevel2 !== "0" ? categoryLevel2 : categoryLevel1;
 
         //Add Info Product
         var product = {
@@ -21,6 +24,7 @@ var createProduct = {
             Sku: sku,
             Price: parseInt(price),
             Description: description,
+            ProductCategoryId: parseInt(category),
         };
 
         var data = new FormData();

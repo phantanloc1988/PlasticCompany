@@ -8,6 +8,8 @@ namespace PlasticCompany.Common.MyServices
 {
     public interface IMyServices
     {
-        public void SaveFile(string folderPath, IFormFile File, string nameFile);
+        void SaveFile(string folderPath, IFormFile File, string nameFile);
+
+        void DeleteFile(string folderPath, string nameFile);
     }
 }

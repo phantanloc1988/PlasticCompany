@@ -11,6 +11,7 @@ namespace PlasticCompany.Areas.Admin.Services.ProductsServices
     {
         Task<string> CreateProduct(Product data, List<IFormFile> files);
 
+        Product GetProductById(int id);
         List<Product> GetAll();
     }
 }

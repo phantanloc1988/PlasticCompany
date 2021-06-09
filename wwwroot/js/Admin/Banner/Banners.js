@@ -5,14 +5,14 @@
 
     selectBanner: function () {
         $('body').on('change', '#banners-list .banner-input', function () {
-            var file = $(this).get(0).files;
-
+            var files = $(this).get(0).files;
+            var id = $(this).attr('data-id');
             var data = new FormData;
-
-            data.append("image", file);
+            data.append("id", id);
+            data.append("image", files[0]);
 
             $.ajax({
-                url: '/Admin/Products/Create',
+                url: '/Admin/Banner/Create',
                 type: 'POST',
                 contentType: false,
                 processData: false,
@@ -27,3 +27,5 @@
         })
     }
 }
+
+banner.init();

@@ -43,9 +43,9 @@ namespace PlasticCompany.Areas.Admin.Services.InformationServices
                     var nameFile = $"{Guid.NewGuid()}-{item.FileName}";
 
                     //add DB
-                    Images image = new Images()
+                    Image image = new Image()
                     {
-                        Type = MyConstants.TypeImage.AboutInformation.ToString(),
+                        Type = MyConstants.ImageType.AboutInformation.ToString(),
                         Name = nameFile
                     };
 

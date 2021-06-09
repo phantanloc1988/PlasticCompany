@@ -22,7 +22,6 @@ namespace PlasticCompany.Models
         public virtual DbSet<About> About { get; set; }
         public virtual DbSet<Contact> Contact { get; set; }
         public virtual DbSet<Image> Image { get; set; }
-        public virtual DbSet<Images> Images { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductCategory> ProductCategory { get; set; }
 
@@ -44,26 +43,13 @@ namespace PlasticCompany.Models
 
             modelBuilder.Entity<Image>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.Property(e => e.Area).HasMaxLength(30);
-
-                entity.Property(e => e.BannerId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Location).HasMaxLength(30);
 
                 entity.Property(e => e.Name).HasMaxLength(30);
 
                 entity.Property(e => e.Type).HasMaxLength(30);
-            });
-
-            modelBuilder.Entity<Images>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.Property(e => e.ImageId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Type).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Product>(entity =>

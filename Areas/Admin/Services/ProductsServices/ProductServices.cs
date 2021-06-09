@@ -35,7 +35,8 @@ namespace PlasticCompany.Areas.Admin.Services.ProductsServices
                     Name = data.Name,
                     Price = data.Price,
                     Sku = data.Sku,
-                    Description = data.Description
+                    Description = data.Description,
+                    ProductCategoryId = data.ProductCategoryId
                 };
 
                
@@ -104,6 +105,12 @@ namespace PlasticCompany.Areas.Admin.Services.ProductsServices
         {
             var list = _plasticCompanyContext.Product.ToList();
             return list;
+        }
+
+        public Product GetProductById(int id)
+        {
+            var product = _plasticCompanyContext.Product.FirstOrDefault(x => x.ProductId == id);
+            return product;
         }
     }
 }

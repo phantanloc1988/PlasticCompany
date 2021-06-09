@@ -7,21 +7,21 @@ namespace PlasticCompany.Common
 {
     public static class MyConstants
     {
-        public enum TypeImage
+        public enum ImageType
         {
             Logo = 1,
             AboutInformation = 2,
             Banner = 3
         }
 
-        public enum BannerArea
+        public enum ImageArea
         {
             MainPage = 1
         }
 
-        public enum BannerLocation
+        public enum ImageLocation
         {
-
+            Top = 1
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿@model IPagedList<PlasticCompany.Models.Product>
-@using X.PagedList.Mvc.Core; 
+@using X.PagedList.Mvc.Core;
 @using X.PagedList;
 @{
     ViewData["Title"] = "Products Management";
@@ -50,7 +50,7 @@
                     <th>Mã sản phẩm</th>
                     <th>Giá</th>
                     <th>Trạng thái</th>
-
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -80,7 +80,17 @@
                             </td>
                             <td><span class="font-weight-normal">@item.Sku</span></td>
                             <td><span class="font-weight-normal">@price</span></td>
-                            <td><span class="font-weight-bold">@Status</span></td>
+                            <td>
+                                @*<span class="font-weight-bold">@Status</span>*@
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch input</label>
+                                </div>
+                            </td>
+                            <td>
+                                <a class="btn btn-gray btn-sm" href="/Admin/Products/Edit?id=@item.ProductId">Sửa</a>
+                                <button class="btn btn-danger btn-sm delete-button" type="button">Xoá</button>
+                            </td>
                         </tr>
                     }
                 }
@@ -88,7 +98,7 @@
             </tbody>
         </table>
 
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, foo = "bar" }))        
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, foo = "bar" }))
     </div>
 
 </div>

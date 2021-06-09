@@ -61,5 +61,12 @@ namespace PlasticCompany.Areas.Admin.Controllers
             }
             return Json(new { status = "Fail", url = Url.Action("Create", "Products") });
         }
+
+        public IActionResult Edit(int id)
+        {
+            var product = _productServices.GetProductById(id);
+            ViewBag.Categories = _productCategoriesServices.GetAllProductCategories();
+            return View(product);
+        }
     }
 }
